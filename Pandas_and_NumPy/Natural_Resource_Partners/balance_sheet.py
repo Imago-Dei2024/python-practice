@@ -2,7 +2,6 @@ import pandas as pd
 
 df = pd.read_csv('/Users/connorlaber/Desktop/python-practice/Pandas_and_NumPy/data/balance_sheets/NRP_annual_balance-sheet.csv')
 
-# Printing Specific Rows based on the Text Value in the first column - Balance Sheet 
 total_assets_data = df[df.iloc[:, 0] == 'TotalAssets'] 
 
 current_assets_data = df[df.iloc[:, 0] == 'CurrentAssets']  
@@ -45,4 +44,3 @@ shares_issued_data = df[df.iloc[:, 0] == 'SharesIssued']
 
 
 ordinary_shares_data = df[df.iloc[:, 0] == 'OrdinarySharesNumber'] 
-
