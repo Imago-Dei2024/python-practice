@@ -5,28 +5,27 @@ from rich.table import Table
 from rich.text import Text 
 from rich.panel import Panel 
 from rich.align import Align 
+from rich.box import ROUNDED 
 
 
 
-# -- Create the Main Company Overview Table -- # 
-overview_table= Table ( 
-    show_header = False, 
-    box = "rounded", 
-    border_style="yellow", 
-    title = "Company Overview", 
-    title_justify = "left", 
-    padding = (1, 2)
-) 
+overview_table = Table(
+    show_header=False,
+    border_style = "yellow",  # No box, we'll use lines between rows
+    padding=(0, 2), # Padding top/bottom, left/right
+    title=f"\n[bold cyan]{valuations.companyName}[/bold cyan]",
+    title_justify="center"
+)
 
 # ==== Add 4 Columns to Table ==== # 
-overview_table.add_column(style="dim") 
-overview_table.add_column(style="dim") 
-overview_table.add_column(style="dim") 
-overview_table.add_column(style="dim") 
+overview_table.add_column(style="bold white") 
+overview_table.add_column(style="bold white") 
+overview_table.add_column(style="bold white") 
+overview_table.add_column(style="bold white") 
 
 #Populate Table Rows 
 overview_table.add_row ( 
-    Text(f"Previous Close             {valuations.sharePriceFormatted}", justify="left"),
+    Text(f"Previous Close.            {valuations.sharePriceFormatted}", justify="left"),
     Text(f"Day's Range                {valuations.dayLow} x {valuations.dayHigh}", justify="left"), 
     Text(f"Market Cap (intraday)      {valuations.intraMktCap}", justify="left"), 
     Text(f"Earnings Date              {valuations.eMonth} {valuations.eDay}, {valuations.eYear}", justify="left")
@@ -54,7 +53,9 @@ overview_table.add_row (
     Text(f"Avg. Volume                {valuations.averageVolume}", justify="left"), 
     Text(f"EPS (TTM)                  {valuations.eps}", justify="left"), 
     Text(f"1y Target Est              {valuations.oneYearTarget}", justify="left"), 
-) 
+)  
+
+# --- Create Company Overview Table --- 
 
 # --- Create Valuation Tables ---
 def create_valuation_panel(title, valuation, price, roi):
@@ -70,8 +71,6 @@ def create_valuation_panel(title, valuation, price, roi):
         border_style="yellow",
         padding=(1, 2)
     ) 
-
-
 
 perp_panel = create_valuation_panel(
     "Perpetuity Model",
@@ -89,7 +88,7 @@ gg_panel = create_valuation_panel(
 
 # --- Print everything to the console ---
 console = Console() 
-console.print(Align.center(overview_table))
+console.print(overview_table)
 console.print(Align.center(perp_panel))
 console.print(Align.center(gg_panel))
 

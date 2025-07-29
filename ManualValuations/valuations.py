@@ -1,3 +1,10 @@
+from rich.console import Console 
+from rich.table import Table 
+from rich.text import Text 
+from rich.panel import Panel 
+from rich.align import Align 
+
+
 # COMPANY OVERVIEW Unformatted
 companyName = str(input("Enter the Name of the Company: "))
 shares = 13140000
