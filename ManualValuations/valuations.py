@@ -9,6 +9,9 @@ freeCash = int(input("Enter the TTM Free Cash Flow: "))
 
 dcRate = .10
 
+dayLow = 104.00 
+dayHigh = 106.99 
+
 yearlyLow = 81.74
 yearlyHigh = 113.84
 
@@ -20,6 +23,8 @@ askQuantity = 900
 
 volume = 66,988
 averageVolume = 22,800
+
+intraMktCap = "1.38B" 
 
 beta = 0.22
 peRatio = 10.01
@@ -33,6 +38,8 @@ fwdDivYield = 3
 xMonth = "May"
 xDay = 20
 xYear = 2025
+
+oneYearTarget = "--"
 
 # Company Overview - Formatted
 sharesOutstanding = f"{shares:,}"
@@ -56,10 +63,10 @@ perpModelROI = f"{rawPerpModelROI:.0%}"
 # --- GORDON GROWTH MODEL (CF1 / (R - g)) ---
 #Calculate Cash Flow 1 (Free Cash Flow * (1 + g))
 freeCash
-g = .02
-cashF1 = (freeCash * (1 + g))
+terminalGrowth = .02
+cashF1 = (freeCash * (1 + terminalGrowth))
 # Gordon Growth Valuation
-gordonGrowth = cashF1 / (dcRate - g)
+gordonGrowth = cashF1 / (dcRate - terminalGrowth)
 rawGGPrice = (gordonGrowth / shares)
 rawGGROI = (rawGGPrice - shareprice) / shareprice
 

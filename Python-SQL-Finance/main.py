@@ -12,7 +12,6 @@ def get_db_connection():
     return conn
 
 def create_database():
-    """Creates the database tables from the schema.sql file."""
     if os.path.exists(DATABASE_FILE):
         print("Database file already exists. Skipping creation.")
         return
