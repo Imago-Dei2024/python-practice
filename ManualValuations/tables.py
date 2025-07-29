@@ -88,7 +88,7 @@ gg_panel = create_valuation_panel(
 
 # --- Print everything to the console ---
 console = Console() 
-console.print(overview_table)
+console.print(Align.center(overview_table))
 console.print(Align.center(perp_panel))
 console.print(Align.center(gg_panel))
 
