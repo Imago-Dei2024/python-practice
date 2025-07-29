@@ -1,0 +1,39 @@
+-- database: ./financial_data_1.db
+
+INSERT INTO companies ( 
+    company_name, 
+    ticker_symbol, 
+    industry, 
+    sector, 
+    market_cap, 
+    bid, 
+    ask, 
+    fiftey_two_week_high, 
+    fiftey_two_week_low, 
+    volume, 
+    average_volume, 
+    beta_5y_monthly, 
+    pe_ratio_ttm, 
+    eps_ttm, 
+    earnings_date, 
+    forward_dividend_yield, 
+    ex_dividend_date, 
+    shares_outstanding, 
+    current_share_price 
+) VALUES 
+   ('Apple Inc.', 'AAPL', 'Technology', 'Technology', 3200000000000, 189.50, 189.55, 198.23, 124.17, 45000000, 52000000, 1.15, 28.5, 6.64, '2024-02-01', 0.0044, '2024-01-15', 15500000000, 189.52),
+   ('Microsoft Corporation', 'MSFT', 'Technology', 'Technology', 2800000000000, 412.30, 412.35, 420.82, 309.45, 23000000, 25000000, 0.98, 32.1, 12.93, '2024-01-24', 0.0062, '2024-01-18', 7400000000, 412.33),
+   ('Amazon.com Inc.', 'AMZN', 'E-commerce', 'Consumer Discretionary', 1650000000000, 155.20, 155.25, 170.40, 118.35, 38000000, 42000000, 1.35, 45.2, 3.45, '2024-02-02', NULL, NULL, 10600000000, 155.23); 
+
+INSERT INTO valuation_metrics ( 
+    company_id, 
+    ticker_symbold, 
+    shares_outstanding, 
+    current_share_price, 
+    market_cap
+) VALUES  
+    (1, 'AAPL', 15500000000, 189.52, 3200000000000),
+    (2, 'MSFT', 7400000000, 412.33, 2800000000000),
+    (3, 'AMZN', 10600000000, 155.23, 1650000000000);
+
+ 

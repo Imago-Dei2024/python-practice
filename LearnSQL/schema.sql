@@ -5,6 +5,8 @@ DROP TABLE IF EXISTS balance_sheets;
 DROP TABLE IF EXISTS cash_flow_statements;
 
 
+
+
 -- 1. Table for General Company Information 
 CREATE TABLE companies ( 
     id INTEGER PRIMARY KEY AUTOINCREMENT, 
